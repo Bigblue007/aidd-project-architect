@@ -60,23 +60,51 @@ V adresáři `templates/` najdeš připravené stavební kameny:
 
 ## 🛠️ Jak to použít
 
-### A. V Google Antigravity IDE
-Skill stačí naklonovat nebo zkopírovat do tvé globální složky dovedností:
+### 1. Inicializace nového projektu (Scaffolding)
+
+Podle toho, jaký AI nástroj preferuješ, máš několik elegantních možností, jak nový projekt založit:
+
+#### A. Google Antigravity IDE (přes globální skill)
+Skill naklonuj nebo zkopíruj do své globální složky dovedností:
 ```bash
 # Umístění v Antigravity:
 ~/.gemini/config/skills/aidd-project-architect/
 ```
-Při zakládání nového projektu v novém prázdném adresáři jen napíšeš:
+Při zakládání nového projektu v prázdném adresáři jen v chatu napíšeš:
 ```text
 /aidd-project-architect
 ```
-Agent tě provede 6 fázemi (od volby stacku přes git, ústavu, docker, diagnostiku až po initial commit).
+Agent tě interaktivně provede všemi 6 fázemi (od volby stacku přes git, ústavu, docker, diagnostiku až po ověřený initial commit).
 
-### B. V Cursoru, Claude Code nebo VS Code
-Zkopíruj `templates/AGENTS.template.md` do kořene svého projektu jako `AGENTS.md` a přidej tenký ukazatel:
-- V **Claude Code**: vytvoř `CLAUDE.md` s odkazem `Viz ./AGENTS.md`.
-- V **Cursoru**: vytvoř `.cursorrules` s odkazem `Viz ./AGENTS.md`.
-- V **GitHub Copilot**: vytvoř `.github/copilot-instructions.md` s odkazem na `AGENTS.md`.
+#### B. Claude Code (přes Custom Command)
+V Claude Code můžeš využít vestavěný systém globálních slash commandů:
+1. Zkopíruj `SKILL.md` (nebo vytvoř odkaz) do:
+   ```bash
+   ~/.claude/commands/aidd-project-architect.md
+   ```
+2. V prázdném adresáři pak v chatu stačí zavolat:
+   ```text
+   /aidd-project-architect
+   ```
+
+#### C. Cursor, Windsurf, VS Code / GitHub Copilot
+Tyto editory nemají souborový systém pro dynamické globální skilly se samostatnými slash commandy. Scaffolding v nich můžeš spustit dvěma způsoby:
+- **Jako GitHub Template:** Klikni na tomto repozitáři na **Use this template** (nebo repozitář naklonuj), otevři editor a v chatu zadej:
+  > *„Přečti si SKILL.md a proveď scaffolding nového projektu.“*
+- **Přes odkaz na lokální SKILL.md:** Pokud máš tento repozitář naklonovaný lokálně (např. v `~/skills/aidd-project-architect`), v novém prázdném projektu v editoru zadej:
+  > *„Přečti si instrukce v @~/skills/aidd-project-architect/SKILL.md a inicializuj tento projekt.“*
+
+---
+
+### 2. Multi-Agent podpora v již založeném projektu
+
+Po dokončení scaffoldingu je v kořeni projektu vygenerována centrální ústava **`AGENTS.md`** a v `docs/protocols/` jsou uloženy specializované protokoly (chirurgický bugfix, batch runner, UI guard atd.).
+
+Aby tato pravidla automaticky respektovaly všechny různé nástroje, v projektu zůstávají tenké jednořádkové ukazatele:
+- **Claude Code:** soubor `CLAUDE.md` s odkazem `Viz ./AGENTS.md`.
+- **Cursor:** soubor `.cursorrules` s odkazem `Viz ./AGENTS.md`.
+- **GitHub Copilot:** soubor `.github/copilot-instructions.md` s odkazem na `AGENTS.md`.
+- **Google Antigravity:** načítá `AGENTS.md` automaticky jako autoritativní ústavu projektu.
 
 ---
 
