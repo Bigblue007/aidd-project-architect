@@ -1,6 +1,6 @@
 ---
 name: spec-driven-protocol
-description: Spec-Driven Development (OpenSpec standard) pro řízení návrhu velkých funkcí, nových modulů a architektonických změn. Triggery: spec, openspec, propose, návrh, nová funkce, specifikace, blueprint, lastenheft.
+description: "Spec-Driven Development (OpenSpec standard) pro řízení návrhu velkých funkcí, nových modulů a architektonických změn. Triggery: spec, openspec, propose, návrh, nová funkce, specifikace, blueprint, lastenheft."
 ---
 
 # Spec-Driven Development Protocol (OpenSpec Standard)

@@ -1,6 +1,6 @@
 ---
 name: ui-layout-guard-protocol
-description: Vizuální audit, ochrana layoutu a prevence nechtěného přetékání či překrývání prvků v UI. Triggery: layout, ui, css, overflow, scroll, překryv, z-index, vizuální audit.
+description: "Vizuální audit, ochrana layoutu a prevence nechtěného přetékání či překrývání prvků v UI. Triggery: layout, ui, css, overflow, scroll, překryv, z-index, vizuální audit."
 ---
 
 # UI Layout Guard & Visual Audit Protocol

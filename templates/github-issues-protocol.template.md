@@ -1,6 +1,6 @@
 ---
 name: github-issues-protocol
-description: Standardizovaný protokol pro správu chyb, úkolů a připomínek přes GitHub CLI (gh). Triggery: issue, issues, gh, github, bug tracker, úkoly.
+description: "Standardizovaný protokol pro správu chyb, úkolů a připomínek přes GitHub CLI (gh). Triggery: issue, issues, gh, github, bug tracker, úkoly."
 ---
 
 # GitHub Issues Protocol

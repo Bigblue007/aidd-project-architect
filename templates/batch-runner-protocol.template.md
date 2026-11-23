@@ -1,6 +1,6 @@
 ---
 name: batch-runner-protocol
-description: Protokol pro autonomní dávkové odbavování více issues/úkolů najednou. Triggery: batch, dávka, odbav issues, vyřeš úkoly, autonomní běh.
+description: "Protokol pro autonomní dávkové odbavování více issues/úkolů najednou. Triggery: batch, dávka, odbav issues, vyřeš úkoly, autonomní běh."
 ---
 
 # Protokol pro autonomní dávkové odbavování (Batch Runner Protocol)

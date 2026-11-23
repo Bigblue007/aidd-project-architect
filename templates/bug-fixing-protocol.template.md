@@ -1,6 +1,6 @@
 ---
 name: bug-fixing-protocol
-description: Chirurgický bug-fixing protokol a ochranná brzda. Triggery: bug, chyba, fix, oprava, regresní chyba, neočekávané chování.
+description: "Chirurgický bug-fixing protokol a ochranná brzda. Triggery: bug, chyba, fix, oprava, regresní chyba, neočekávané chování."
 ---
 
 # Chirurgický protokol pro odstraňování chyb (Bug-Fixing Protocol)
