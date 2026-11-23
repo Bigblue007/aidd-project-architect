@@ -1,0 +1,26 @@
+# Cross-platform line endings enforcement (Windows / Linux / macOS)
+* text=auto eol=lf
+
+# Executable scripts and specific OS files
+*.bat eol=crlf
+*.cmd eol=crlf
+*.ps1 eol=crlf
+*.sh text eol=lf
+
+# Binary files - prevent any line ending transformation
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.mp3 binary
+*.mp4 binary
+*.wasm binary
+*.zip binary
+*.tar.gz binary

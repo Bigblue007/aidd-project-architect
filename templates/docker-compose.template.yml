@@ -1,0 +1,82 @@
+# ==============================================================================
+# Docker Compose template for AI-Driven Development (AIDD)
+# Configured for Windows Docker Desktop + Linux host live development & HMR
+# ==============================================================================
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev # Uses multi-stage dev target if configured
+    container_name: app_dev
+    restart: unless-stopped
+    
+    # ---------------------------------------------------------------------------
+    # Security & Port Binding:
+    # Always bind strictly to 127.0.0.1 (loopback) to prevent accidental LAN exposure
+    # ---------------------------------------------------------------------------
+    ports:
+      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:5173:5173" # Vite dev server
+    
+    # ---------------------------------------------------------------------------
+    # Live Reload & File Watching for Windows Docker Desktop:
+    # Windows filesystem mounts (WSL2 / Hyper-V) do not emit inotify events reliably.
+    # We must enable polling flags for file watchers (Vite, Chokidar, Webpack).
+    # ---------------------------------------------------------------------------
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+      - VITE_USE_POLLING=true
+      - FAST_REFRESH=true
+    
+    # ---------------------------------------------------------------------------
+    # Volume Mounts:
+    # Mount local source code to container for instant live HMR.
+    # Anonymous volume for node_modules protects container binaries from host OS.
+    # ---------------------------------------------------------------------------
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.git # Optional: hide .git from container if not needed
+    
+    # ---------------------------------------------------------------------------
+    # Resource Limits:
+    # Protect developer workstation memory & CPU for IDE + AI models
+    # ---------------------------------------------------------------------------
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+  # ===========================================================================
+  # OPTIONAL DATABASE SERVICE (PostgreSQL / Redis / etc.):
+  # ===========================================================================
+  # db:
+  #   image: postgres:16-alpine
+  #   container_name: app_postgres_dev
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_USER: dev_user
+  #     POSTGRES_PASSWORD: dev_password
+  #     POSTGRES_DB: app_dev
+  #   ports:
+  #     - "127.0.0.1:5432:5432"
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         cpus: '1.0'
+  #         memory: 1024M
+
+# volumes:
+#   pgdata:
