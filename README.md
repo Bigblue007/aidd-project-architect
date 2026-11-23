@@ -64,11 +64,11 @@ V adresáři `templates/` najdeš připravené stavební kameny:
 Skill stačí naklonovat nebo zkopírovat do tvé globální složky dovedností:
 ```bash
 # Umístění v Antigravity:
-~/.gemini/config/skills/ai-project-architect/
+~/.gemini/config/skills/aidd-project-architect/
 ```
 Při zakládání nového projektu v novém prázdném adresáři jen napíšeš:
 ```text
-/ai-project-architect
+/aidd-project-architect
 ```
 Agent tě provede 6 fázemi (od volby stacku přes git, ústavu, docker, diagnostiku až po initial commit).
 
