@@ -1,5 +1,5 @@
 ---
-name: ai-project-architect
+name: aidd-project-architect
 description: >-
   Bootstrap, scaffold, and architect modern software projects optimized from day one for AI-driven development (AIDD / Vibecoding).
   Guides stack selection, cross-platform repo initialization, setting up the AI governance framework (AGENTS.md constitution,
